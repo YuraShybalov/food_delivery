@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  header .container {
+    gap: 16px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+}

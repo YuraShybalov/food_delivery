@@ -69,10 +69,14 @@ svg {
 
 body {
   min-width: 320px;
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--color-text);
   background-color: var(--color-white);
   line-height: 1.5;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 .container {
@@ -102,6 +106,7 @@ header {
 }
 
 header .container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -119,6 +124,11 @@ header .container {
 }
 
 .btn-burger-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 30;
   color: var(--color-dark-green);
   transition: color 200ms ease;
 }
@@ -130,8 +140,40 @@ header .container {
   color: var(--color-accent);
 }
 
+.clous-burger-nav {
+  display: none;
+}
+
 .nav-tablet-pc {
   display: none;
+}
+
+.nav-tablet-pc.is-open {
+  position: absolute;
+  top: calc(100% - 4px);
+  right: 20px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 130px;
+  height: 255px;
+  gap: 16px;
+  padding: 28px 24px 28px 24px;
+  border-radius: 30px 0 30px 30px;
+  box-shadow: 0 4px 24px rgba(105, 105, 105, 0.1);
+  background-color: var(--color-white);
+}
+
+.nav-tablet-pc.is-open .clous-burger-nav {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark-green);
 }
 
 .nav-tablet-pc nav {
@@ -145,12 +187,30 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
+}
+
+.nav-tablet-pc.is-open .nav-links {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.nav-tablet-pc.is-open nav {
+  margin-top: 12px;
+}
+
+.nav-tablet-pc.is-open .btm-order {
+  display: none;
 }
 
 .nav-links li {
-  font-size: 14px;
-  line-height: 1.14;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
   color: var(--color-dark);
   transition: color 200ms ease;
 }
@@ -162,6 +222,7 @@ nav {
 
 .btm-order {
   min-width: 98px;
+  min-height: 32px;
   padding: 10px 22px;
   border-radius: 999px;
   background-color: var(--color-primary);
@@ -180,6 +241,55 @@ nav {
   transform: translateY(-1px);
 }
 
+.hero {
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 280px;
+}
+
+.hero-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+
+.hero-text {
+  margin-top: 28px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.hero-button {
+  min-width: 98px;
+  min-height: 32px;
+  margin-top: 32px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  background-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
 @media screen and (min-width: 768px) {
   header .container {
     gap: 32px;
@@ -192,7 +302,63 @@ nav {
     margin-left: auto;
   }
 
-  header .container > button {
+  .nav-tablet-pc.is-open {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    height: auto;
+    gap: 30px;
+    padding: 0px;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .clous-burger-nav {
     display: none;
+  }
+
+  .btn-burger-menu {
+    display: none;
+  }
+
+  .nav-tablet-pc.is-open .btm-order {
+    display: inline-flex;
+  }
+
+  .nav-tablet-pc.is-open nav {
+    margin-top: 0;
+  }
+
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .hero-content {
+    max-width: 540px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-text {
+    margin-top: 32px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 140px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    line-height: 1.2;
   }
 }

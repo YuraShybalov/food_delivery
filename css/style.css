@@ -314,7 +314,14 @@ nav {
   padding: 60px 0px 60px 0px;
   background-color: #ffe550;
 }
-.about > .container {
+
+.wrapper-about {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.wrapper-about {
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -333,9 +340,11 @@ nav {
   padding: 12px;
   border-radius: 50%;
   object-fit: contain;
-  background-color: rgba(254, 254, 254, 1);
+  background-color: var(--color-white);
 }
-
+.about-wrapper {
+  width: 280px;
+}
 .about-wrapper-text {
   display: flex;
   flex-direction: column;
@@ -345,14 +354,37 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  margin-top: 28px;
 }
 .feature-icon {
   margin-bottom: 8px;
+}
+.btn-about {
+  margin-top: 40px;
+}
+.btn-order-about {
+  width: 106px;
+  height: 32px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-dark-green);
+  border-radius: 30px;
+  transition: background-color 200ms ease;
+  margin-right: 20px;
+}
+
+.btn-order-about:hover,
+.btn-order-about:focus {
+  border: 2px solid var(--color-accent);
 }
 
 @media screen and (min-width: 768px) {
   header .container {
     gap: 32px;
+  }
+
+  .features-list {
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .nav-tablet-pc {
@@ -425,6 +457,19 @@ nav {
     margin-top: 32px;
     font-size: 16px;
   }
+  .wrapper-apple {
+    width: 365px;
+    height: 363px;
+  }
+  .about-wrapper {
+  width: 620px;
+}
+  .features-list {
+    margin-top: 40px;
+  }
+  .btn-about {
+    margin-top: 62px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -483,5 +528,20 @@ nav {
   .hero-title {
     font-size: 48px;
     line-height: 1.2;
+  }
+  .wrapper-about {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+  }
+  .about-wrapper {
+  width: 573px;
+}
+  .btn-about {
+    margin-top: 58px;
+  }
+  .btn-read-about {
+    display: none;
   }
 }
